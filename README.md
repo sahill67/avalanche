@@ -1,45 +1,47 @@
-# Error Handling
 
-This Solidity smart contract, `ErrorHandling`, serves as an educational example demonstrating different error handling techniques in Solidity.
+
+# Number Guessing Game
 
 ## Overview
 
-The contract contains three functions, each showcasing a different method of error handling: `evenSquare`, `oddCube`, and `calculateFactorial`.
+The Number Guessing Game is a simple smart contract written in Solidity. The objective of the game is to guess the correct number and become the winner.
 
-## Error Handling
+## Contract Details
 
-Solidity provides three main error handling mechanisms: `require`, `revert`, and `assert`.
+- **Winning Number:** The winning number is set to 21 by default.
+- **Winner:** The address of the winner will be stored in the `winner` variable.
 
-- `require`: Used to ensure certain conditions are met. If the condition evaluates to `false`, it will revert all changes to the state.
+## How to Play
 
-- `revert`: Similar to `require`, but it allows for custom error messages. If the condition is not met, it will revert the transaction with the specified error message.
+To play the game, participants need to call the `guessNumber` function, providing a chosen number as an argument. The chosen number must meet the following criteria:
 
-- `assert`: Typically used to check for conditions that should never occur. If the condition is false, it indicates a bug in the code, and the transaction is reverted
+- Greater than 17
+- Between 18 and 35 (inclusive)
 
+If the chosen number matches the winning number (21 by default), the participant becomes the winner, and their address is stored in the `winner` variable. An event (`Winner`) is emitted to signify the victory.
 
-### Function 1: evenSquare
+If the chosen number does not meet the criteria or is incorrect, the function will revert with an appropriate error message, and the participant is encouraged to try again.
 
-The `evenSquare` function takes an unsigned integer `number` as input, checks if it is even using the `require` statement, and then calculates and returns the square of the input. If the input is not even, it will trigger an error with a custom error message.
+## Getting Started
 
-### Function 2: oddCube
+1. Deploy the contract to an Ethereum-compatible blockchain.
+2. Interact with the contract by calling the `guessNumber` function and providing a valid chosen number.
 
-The `oddCube` function requires the input number to be both positive and odd. It uses the `revert` statement to trigger an error with a custom message if the condition is not met. If the input is valid, the function calculates and returns the cube of the input.
+## Events
 
-### Function 3: calculateFactorial
-
-The `calculateFactorial` function calculates the factorial of a given positive integer `n`. It uses the `assert` statement to ensure that the input is positive. The function then computes and returns the factorial of the input.
-
-## Usage
-
-To use this contract, deploy it on the Ethereum blockchain using a development environment like Remix .
+- **Winner:** Emitted when a participant successfully guesses the winning number.
 
 ## Author
 
-mohammedsahil
+Mohammed sahil
 
-mohammedsahil01421@gmail.com
+Mohammedsahil01421@gmail.com
 
 ## License
 
-This smart contract is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+This smart contract is released under the MIT License.
+
+---
+
+Feel free to customize and expand this README based on your specific needs or additional details about the contract and its usage.
 
